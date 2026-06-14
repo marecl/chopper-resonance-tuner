@@ -95,3 +95,4 @@ pip install --upgrade pip
 pip install -r $repo_path/wiki/requirements.txt
 
 echo "Install complete"
+/etc/init.d/S55klipper_service restart
