@@ -33,8 +33,8 @@ cfg_name=chopper_tune.cfg
 cfg_is_name=inputshaper_save.cfg
 cfg_incl_path=/usr/data/printer_data/config/printer.cfg
 
-ln -sf "$repo_path/$cfg_name" $cfg_path/$cfg_directory/ # Перезапись
-ln -sf "$repo_path/$cfg_is_name" $cfg_path/$cfg_directory/ # Перезапись
+ln -sf "$repo_path/$cfg_name" $cfg_path # Перезапись
+ln -sf "$repo_path/$cfg_is_name" $cfg_path # Перезапись
 
 # Добавление строки [include] в printer.cfg
 if [ -f "$cfg_incl_path" ]; then
