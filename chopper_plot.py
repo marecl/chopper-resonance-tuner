@@ -7,8 +7,8 @@
 # This file may be distributed under the terms of the GNU GPLv3 license.
 
 #################################################################################################################
-RESULTS_FOLDER = '/usr/data/printer_data/config/chopper_resonance_tuner/results'
-DATA_FOLDER = '/usr/data/chopper-resonance-tuner/measurements'
+RESULTS_FOLDER = '/usr/data/printer_data/config/chopper_resonance_tuner/results/'
+DATA_FOLDER = '/usr/data/chopper-resonance-tuner/measurements/'
 #################################################################################################################
 
 import os, sys, csv
