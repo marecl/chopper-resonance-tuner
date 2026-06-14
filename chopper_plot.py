@@ -7,8 +7,8 @@
 # This file may be distributed under the terms of the GNU GPLv3 license.
 
 #################################################################################################################
-RESULTS_FOLDER = '~/printer_data/config/adxl_results/chopper_magnitude'
-DATA_FOLDER = '/tmp/'
+RESULTS_FOLDER = '/usr/data/printer_data/config/chopper_resonance_tuner/results'
+DATA_FOLDER = '/usr/data/chopper-resonance-tuner/measurements'
 #################################################################################################################
 
 import os, sys, csv
@@ -24,6 +24,7 @@ CUTOFF_RANGE = 5
 
 def cleaner():
     os.system('rm -f /tmp/*.csv')
+    os.system(f'rm -f {DATA_FOLDER}/*.csv')
     sys.exit(0)
 
 def check_export_path(path):
@@ -60,6 +61,7 @@ def calc_magnitude(file, static_data):
 
 def main():
     print('Magnitude graphs generation...')
+    os.makedirs(DATA_FOLDER, exist_ok = True)
     args = parse_arguments()
     driver = args.get('driver')
     iterations = args.get('iterations')

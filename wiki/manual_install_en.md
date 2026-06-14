@@ -1,7 +1,7 @@
-1. Create a folder for the output files, by default - `mkdir ~/printer_data/config/adxl_results/chopper_magnitude`
+1. Create a folder for the output files, by default - `mkdir /usr/data/printer_data/config/adxl_results/chopper_magnitude`
 2. Download a program - `git clone https://github.com/MRX8024/chopper-resonance-tuner`
-3. Create a link to the program - `ln -sf ~/chopper-resonance-tuner/chopper_tune.cfg ~/printer_data/config/`
-4. Install via kiauh, or move the gcode_shell_command.py module from repo to the klipper - `cp -i ~/chopper-resonance-tuner/gcode_shell_command.py ~/klipper/klippy/extras/`
+3. Create a link to the program - `ln -sf /usr/data/chopper-resonance-tuner/chopper_tune.cfg /usr/data/printer_data/config/`
+4. Install via kiauh, or move the gcode_shell_command.py module from repo to the klipper - `cp -i /usr/data/chopper-resonance-tuner/gcode_shell_command.py /usr/data/klipper/klippy/extras/`
 5. Install packages -
 
     ``` sudo apt-get install libatlas-base-dev libopenblas-dev ```
@@ -19,7 +19,7 @@ You can also optionally add an update section to moonraker for subsequent update
 ```
 [update_manager chopper-resonance-tuner]
 type: git_repo
-path: ~/chopper-resonance-tuner/
+path: /usr/data/chopper-resonance-tuner/
 origin: https://github.com/MRX8024/chopper-resonance-tuner.git
 primary_branch: main
 managed_services: klipper
