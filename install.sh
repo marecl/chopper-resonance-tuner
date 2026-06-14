@@ -38,17 +38,15 @@ ln -sf "$repo_path/$cfg_is_name" $cfg_path # Перезапись
 
 # Добавление строки [include] в printer.cfg
 if [ -f "$cfg_incl_path" ]; then
+    /etc/init.d/S55klipper_service stop
     if ! grep -q "^\[include $cfg_directory/$cfg_name\]$" "$cfg_incl_path"; then
-        /etc/init.d/S55klipper_service stop
         sed -i "1i\[include $cfg_directory/$cfg_name]" "$cfg_incl_path"
-        /etc/init.d/S55klipper_service start
-    elif ! grep -q "^\[include $cfg_directory/$cfg_is_name\]$" "$cfg_incl_path"; then
-        /etc/init.d/S55klipper_service stop
-        sed -i "1i\[include $cfg_directory/$cfg_is_name]" "$cfg_incl_path"
-        /etc/init.d/S55klipper_service start
-    else
-        echo "Including $cfg_name aborted, $cfg_name already exists in $cfg_incl_path"
     fi
+
+    if ! grep -q "^\[include $cfg_directory/$cfg_is_name\]$" "$cfg_incl_path"; then
+        sed -i "1i\[include $cfg_directory/$cfg_is_name]" "$cfg_incl_path"
+    fi
+    /etc/init.d/S55klipper_service start
 fi
 
 # Добавление строки [respond] в printer.cfg
